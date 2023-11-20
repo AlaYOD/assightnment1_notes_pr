@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">assightnment1_notes_pr</string>
+    <string name="login">login</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="click_to_register">click to register</string>
+    <string name="click_to_login">click to login</string>
+    <string name="Register">Register</string>
+    <string-array name="spinner_status_items">
+        <item>due</item>
+        <item>done</item>
+    </string-array>
+    <string-array name="spinner_type_items">
+        <item>hotFix</item>
+        <item>enhancement</item>
+        <item>declined</item>
+    </string-array>
+</resources>
