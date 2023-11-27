@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button addButton;
     ListView listView;
-    ArrayList<item> data;
+    public static ArrayList<item> data;
     MyAdapter ma;
 
     SharedPreferences prefs;
@@ -81,11 +83,9 @@ public class MainActivity extends AppCompatActivity {
             try {
                 size = Integer.parseInt(strLength);
             } catch (NumberFormatException e) {
-                // Handle the case where the String is not a valid integer
                 e.printStackTrace();
             }
         }
-
 
 
         for(int i=0;i< size;i++){
@@ -103,6 +103,19 @@ public class MainActivity extends AppCompatActivity {
         ma.notifyDataSetChanged();
 
 
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                item clickedItem = data.get(position);
+
+                    Intent intent = new Intent(MainActivity.this, UpdateListView.class);
+                    intent.putExtra("position",position);
+                    startActivityForResult(intent,1);
+            }
+        });
     }
 
 }

@@ -53,4 +53,16 @@ public class MyAdapter extends BaseAdapter {
 
         return root;
     }
+
+
+    // Method to update an item in the list
+    public void updateItem(int position, item updatedItem) {
+        if (position >= 0 && position < data.size()) {
+            // Update the item at the specified position
+            data.set(position, updatedItem);
+
+            // Notify the adapter that the data has changed
+            notifyDataSetChanged();
+        }
+    }
 }

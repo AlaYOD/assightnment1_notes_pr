@@ -107,7 +107,6 @@ public class ass_ticket extends AppCompatActivity {
         });
     }
     private void saveDataToSharedPreferences(item myData, Context context) {
-//        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         SharedPreferences prefs = getSharedPreferences(DATA, MODE_PRIVATE);
         editor = prefs.edit();
@@ -115,12 +114,10 @@ public class ass_ticket extends AppCompatActivity {
 // Retrieve the String from SharedPreferences
         String strLength = prefs.getString(ARRAY_LENGTH, "");
 
-// Convert the String to an int
-        int length = 0;  // default value in case of an error
+        int length = 0;
         try {
             length = Integer.parseInt(strLength);
         } catch (NumberFormatException e) {
-            // Handle the case where the String is not a valid integer
             e.printStackTrace();
         }
 
